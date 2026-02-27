@@ -12,9 +12,9 @@ html {
   scroll-behavior: smooth;
 }
 
-/* body {
-  @apply bg-white text-textMain antialiased;
-} */
+body {
+  @apply bg-white text-gray-900;
+}
 
 /* контейнер */
 .container-main {
