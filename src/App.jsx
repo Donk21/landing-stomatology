@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "../public/clinic.jpg";
 
 export default function DentalLanding() {
     return (
@@ -45,7 +46,7 @@ function SEO() {
                         "@context": "https://schema.org",
                         "@type": "Dentist",
                         name: "Частная стоматология",
-                        telephone: "+7 999 000 00 00",
+                        telephone: "+7 800 555 35 35",
                         address: {
                             "@type": "PostalAddress",
                             streetAddress: "Адрес клиники",
@@ -74,7 +75,7 @@ function Header() {
                 </nav>
 
                 <a
-                    href="tel:+79990000000"
+                    href="tel:+78005553535"
                     className="bg-teal-600 text-white px-5 h-11 flex items-center rounded-xl"
                 >
                     Позвонить
@@ -104,8 +105,8 @@ function Hero() {
                     </div>
                 </div>
 
-                <div className="bg-gray-100 rounded-2xl aspect-[4/3] flex items-center justify-center">
-                    Фото клиники
+                <div className="bg-gray-100 rounded-2xl aspect-[4/2] flex items-center justify-center">
+                    <img src={Image} className="rounded-2xl"></img>
                 </div>
             </div>
         </section>
@@ -115,12 +116,42 @@ function Hero() {
 /* ================= SERVICES ================= */
 function Services() {
     const list = [
-        "Лечение кариеса",
-        "Имплантация",
-        "Отбеливание",
-        "Ортодонтия",
-        "Профгигиена",
-        "Протезирование",
+        {
+            title: "Лечение кариеса",
+            desc: "Удаление поражённых тканей и восстановление зуба современными пломбами"
+        },
+        {
+            title: "Лечение пульпита",
+            desc: "Безболезненное лечение корневых каналов под анестезией"
+        },
+        {
+            title: "Лечение периодонтита",
+            desc: "Комплексное лечение воспаления тканей вокруг корня зуба"
+        },
+        {
+            title: "Удаление зуба",
+            desc: "Аккуратное удаление с минимальной травматичностью"
+        },
+        {
+            title: "Имплантация",
+            desc: "Восстановление утраченных зубов современными имплантами"
+        },
+        {
+            title: "Отбеливание",
+            desc: "Профессиональное безопасное осветление эмали"
+        },
+        {
+            title: "Ортодонтия",
+            desc: "Исправление прикуса и выравнивание зубов"
+        },
+        {
+            title: "Профгигиена",
+            desc: "Удаление налёта и камня для здоровья зубов"
+        },
+        {
+            title: "Протезирование",
+            desc: "Восстановление зубов коронками и протезами"
+        }
     ];
 
     return (
@@ -129,15 +160,26 @@ function Services() {
 
             <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {list.map((item) => (
-                    <div
-                        key={item}
-                        className="bg-white rounded-2xl p-6 shadow-sm border"
+                    <a
+                        href="#contacts"
+                        key={item.title}
+                        className="bg-white 
+                                    rounded-2xl 
+                                    p-6 
+                                    shadow-sm 
+                                    border
+                                    transition
+                                    duration-300
+                                    hover:bg-gray-200"
                     >
-                        <div className="text-lg font-semibold mb-2">{item}</div>
+                        <div className="text-lg font-semibold mb-2">
+                            {item.title}
+                        </div>
+
                         <p className="text-gray-600 text-sm">
-                            Современные методы лечения и безопасные материалы
+                            {item.desc}
                         </p>
-                    </div>
+                    </a>
                 ))}
             </div>
         </section>
@@ -439,10 +481,33 @@ function SectionTitle({ children }) {
 function AnchorButton({ href, children }) {
     return (
         <a
-            href={href}
-            className="bg-teal-600 text-white h-12 px-6 flex items-center justify-center rounded-xl"
+        href="#contacts"
+        className="
+        relative
+        bg-teal-600
+        text-black
+        px-6 py-3
+        rounded-xl
+        overflow-hidden
+        group
+        transition
+        duration-300
+        hover:scale-105
+        hover:shadow-lg
+        hover:text-white
+        "
         >
-            {children}
+        <span className="
+            absolute inset-0
+            bg-black/10
+            opacity-0
+            group-hover:opacity-100
+            transition
+        " />
+        
+        <span className="relative z-10">
+            Записаться
+        </span>
         </a>
     );
 }
@@ -450,10 +515,33 @@ function AnchorButton({ href, children }) {
 function OutlineButton({ href, children }) {
     return (
         <a
-            href={href}
-            className="border h-12 px-6 flex items-center justify-center rounded-xl"
+        href="#contacts"
+        className="
+        relative
+        border border-teal-600
+        text-black
+        px-6 py-3
+        rounded-xl
+        overflow-hidden
+        group
+        transition
+        duration-300
+        hover:text-white
+        hover:scale-105
+        hover:shadow-lg
+        "
         >
-            {children}
+        <span className="
+            absolute inset-0
+            bg-teal-600
+            opacity-0
+            group-hover:opacity-100
+            transition
+        " />
+
+        <span className="relative z-10">
+            Получить консультацию
+        </span>
         </a>
     );
 }
