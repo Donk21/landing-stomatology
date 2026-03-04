@@ -2,65 +2,154 @@
 @tailwind components;
 @tailwind utilities;
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ===== Design tokens — Quiet luxury (WCAG AA, 8px grid) ===== */
+:root {
+  /* Colors — WCAG AA contrast; no pure black/white */
+  --color-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f0ede8;
+  --color-text: #111827;
+  --color-text-muted: #4b5563;
+  --color-primary: #2d5a3d;
+  --color-primary-hover: #234a32;
+  --color-primary-muted: #e8f0eb;
+  --color-accent: #6b5344;
+  --color-border: #e5e2dd;
+  --color-error: #b91c1c;
+  --color-success: #15803d;
+  --color-warning: #b45309;
 
-/* ===== Глобальные стили лендинга ===== */
+  /* Typography — clinic-style: clear, trustworthy, readable (sans-serif) */
+  --font-display: "Montserrat", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --text-display: 3.5rem;
+  --text-display-line: 1.1;
+  --text-display-tracking: -0.02em;
+  --text-h1: 2.5rem;
+  --text-h1-line: 1.2;
+  --text-h2: 2rem;
+  --text-h2-line: 1.25;
+  --text-h3: 1.25rem;
+  --text-h3-line: 1.3;
+  --text-body-lg: 1.125rem;
+  --text-body-lg-line: 1.6;
+  --text-body: 1rem;
+  --text-body-line: 1.65;
+  --text-caption: 0.875rem;
+  --text-caption-line: 1.5;
+
+  /* Spacing — 8px base grid */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* Section padding */
+  --section-py-mobile: 3rem;   /* 48px */
+  --section-py-tablet: 4rem;   /* 64px */
+  --section-py-desktop: 5rem;  /* 80px */
+  --section-py-wide: 6rem;     /* 96px */
+
+  /* Radii */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px rgba(17, 24, 39, 0.06), 0 2px 8px rgba(17, 24, 39, 0.04);
+  --shadow-card-hover: 0 4px 12px rgba(17, 24, 39, 0.08), 0 8px 24px rgba(17, 24, 39, 0.06);
+  --shadow-sticky: 0 -4px 16px rgba(17, 24, 39, 0.06);
+  --shadow-focus: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-primary);
+}
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-white text-gray-900;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--text-body-line);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* контейнер */
-.container-main {
-  @apply max-w-6xl mx-auto px-4;
+/* Subtle gradient overlay for depth */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(249, 250, 251, 0.6) 0%, transparent 40%, transparent 60%, rgba(240, 237, 232, 0.4) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* секции */
+/* Optional: very subtle noise texture for depth */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section padding — 8px grid (48/64/80px) */
 .section {
-  @apply py-16 md:py-20;
+  padding-top: var(--section-py-mobile);
+  padding-bottom: var(--section-py-mobile);
+}
+@media (min-width: 768px) {
+  .section {
+    padding-top: var(--section-py-tablet);
+    padding-bottom: var(--section-py-tablet);
+  }
+}
+@media (min-width: 1024px) {
+  .section {
+    padding-top: var(--section-py-desktop);
+    padding-bottom: var(--section-py-desktop);
+  }
+}
+.section-hero,
+.section-cta {
+  padding-top: var(--section-py-mobile);
+  padding-bottom: var(--section-py-mobile);
+}
+@media (min-width: 768px) {
+  .section-hero,
+  .section-cta {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-hero,
+  .section-cta {
+    padding-top: var(--section-py-wide);
+    padding-bottom: var(--section-py-wide);
+  }
 }
 
-/* заголовки */
-.section-title {
-  @apply text-3xl md:text-4xl font-bold text-center mb-10;
-}
-
-/* кнопки CTA */
-.btn-primary {
-  @apply bg-primary text-white px-6 py-3 rounded-xl font-semibold
-         hover:opacity-90 transition h-[48px] flex items-center justify-center;
-}
-
-/* карточки */
-.card {
-  @apply bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition;
-}
-
-/* input */
-.input {
-  @apply w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary;
-}
-
-/* таблица цен */
-.price-table {
-  @apply w-full border rounded-2xl overflow-hidden;
-}
-
-.price-table th {
-  @apply bg-gray-100 text-left p-4;
-}
-
-.price-table td {
-  @apply p-4 border-t;
-}
-
-/* sticky mobile button */
-.mobile-sticky-cta {
-  @apply fixed bottom-4 left-4 right-4 z-50 md:hidden;
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
