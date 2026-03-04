@@ -274,16 +274,16 @@ function StatsBar() {
 
 /* ================= SERVICES (merged with prices) ================= */
 const SERVICES_LIST = [
-  { title: "Консультация", desc: "Осмотр, план лечения, ответы на вопросы. Без обязательств.", icon: "💬", price: "Бесплатно", isConsultation: true, popular: false },
-  { title: "Лечение кариеса", desc: "Удаление поражённых тканей и восстановление пломбой.", icon: "🦷", price: "от 3 500 ₽", isConsultation: false, popular: false },
-  { title: "Лечение пульпита", desc: "Безболезненное лечение корневых каналов под анестезией.", icon: "🔬", price: "от 6 500 ₽", isConsultation: false, popular: false },
-  { title: "Лечение периодонтита", desc: "Комплексное лечение воспаления тканей вокруг корня зуба.", icon: "💊", price: "от 4 500 ₽", isConsultation: false, popular: false },
-  { title: "Удаление зуба", desc: "Аккуратное удаление с минимальной травматичностью.", icon: "⚕️", price: "от 2 800 ₽", isConsultation: false, popular: false },
-  { title: "Имплантация", desc: "Восстановление утраченных зубов современными имплантами.", icon: "🔩", price: "от 25 000 ₽", isConsultation: false, popular: true },
-  { title: "Отбеливание", desc: "Профессиональное безопасное осветление эмали.", icon: "✨", price: "от 9 000 ₽", isConsultation: false, popular: false },
-  { title: "Ортодонтия", desc: "Исправление прикуса и выравнивание зубов.", icon: "😁", price: "от 35 000 ₽", isConsultation: false, popular: false },
-  { title: "Профгигиена", desc: "Удаление налёта и камня для здоровья зубов.", icon: "🪥", price: "от 3 200 ₽", isConsultation: false, popular: true },
-  { title: "Протезирование", desc: "Восстановление зубов коронками и протезами.", icon: "👑", price: "от 12 000 ₽", isConsultation: false, popular: false },
+  { title: "Консультация", desc: "Осмотр, план лечения, ответы на вопросы. Без обязательств.", icon: "💬", price: "Бесплатно", popular: false },
+  { title: "Лечение кариеса", desc: "Удаление поражённых тканей и восстановление пломбой.", icon: "🦷", price: "от 3 500 ₽", popular: false },
+  { title: "Лечение пульпита", desc: "Безболезненное лечение корневых каналов под анестезией.", icon: "🔬", price: "от 6 500 ₽", popular: false },
+  { title: "Лечение периодонтита", desc: "Комплексное лечение воспаления тканей вокруг корня зуба.", icon: "💊", price: "от 4 500 ₽", popular: false },
+  { title: "Удаление зуба", desc: "Аккуратное удаление с минимальной травматичностью.", icon: "⚕️", price: "от 2 800 ₽", popular: false },
+  { title: "Имплантация", desc: "Восстановление утраченных зубов современными имплантами.", icon: "🔩", price: "от 25 000 ₽", popular: true },
+  { title: "Отбеливание", desc: "Профессиональное безопасное осветление эмали.", icon: "✨", price: "от 9 000 ₽", popular: false },
+  { title: "Ортодонтия", desc: "Исправление прикуса и выравнивание зубов.", icon: "😁", price: "от 35 000 ₽", popular: false },
+  { title: "Профгигиена", desc: "Удаление налёта и камня для здоровья зубов.", icon: "🪥", price: "от 3 200 ₽", popular: true },
+  { title: "Протезирование", desc: "Восстановление зубов коронками и протезами.", icon: "👑", price: "от 12 000 ₽", popular: false },
 ];
 
 function Services() {
@@ -300,8 +300,7 @@ function Services() {
           <motion.article
             key={item.title}
             data-animate
-            className={`bg-surface rounded-2xl p-6 border flex flex-col justify-between transition-all duration-300
-              ${item.isConsultation ? "border-l-4 border-l-primary bg-primary-muted border-border" : "border-border"}
+            className={`bg-surface rounded-2xl p-6 border flex flex-col justify-between transition-all duration-300 hover:border-l-4 hover:border-l-primary bg-primary-muted border-border"
               shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-primary/30`}
             {...(reduced ? {} : {
               initial: { opacity: 0, y: 12 },
@@ -324,7 +323,7 @@ function Services() {
             </div>
             <div className="flex items-center justify-between mt-6 pt-4 border-t border-border gap-3">
               <span className="font-semibold text-body text-primary">
-                {item.isConsultation ? "Бесплатно" : item.price}
+                {item.price}
               </span>
               <a
                 href="#contacts"
@@ -648,11 +647,11 @@ function BeforeAfter() {
 /* ================= REVIEWS ================= */
 const REVIEWS_LIST = [
   { name: "Анна К.", stars: 5, date: "2 месяца назад", source: "Яндекс.Карты", text: "Обратилась к Елене Викторовне с запущенным кариесом. Всё прошло абсолютно без боли, объяснила каждый шаг. Первый раз в жизни вышла от стоматолога в хорошем настроении." },
-  { name: "Сергей М.", stars: 5, date: "1 месяц назад", source: "Google", text: "Ставил имплант у Михаила Андреевича. Боялся, что будет долго и дорого — оказалось быстро и по фиксированной цене без сюрпризов. Уже 3 месяца всё отлично." },
+  { name: "Сергей М.", stars: 5, date: "1 месяц назад", source: "Google Maps", text: "Ставил имплант у Михаила Андреевича. Боялся, что будет долго и дорого — оказалось быстро и по фиксированной цене без сюрпризов. Уже 3 месяца всё отлично." },
   { name: "Мария Т.", stars: 5, date: "3 месяца назад", source: "Яндекс.Карты", text: "Привела дочку 7 лет — боялась, что будет истерика. Врач нашёл подход, ребёнок вышел спокойный и даже доволен. Теперь ходим всей семьёй." },
-  { name: "Алексей В.", stars: 5, date: "5 месяцев назад", source: "Google", text: "Панически боюсь стоматологов с детства. Здесь впервые не было страха — укол почти не почувствовал, процедура заняла 40 минут. Записался уже на следующий приём." },
+  { name: "Алексей В.", stars: 5, date: "5 месяцев назад", source: "Google Maps", text: "Панически боюсь стоматологов с детства. Здесь впервые не было страха — укол почти не почувствовал, процедура заняла 40 минут. Записался уже на следующий приём." },
   { name: "Ольга Н.", stars: 5, date: "1 месяц назад", source: "Яндекс.Карты", text: "Поставила элайнеры у Дмитрия Сергеевича. Прошло полгода — результат виден уже сейчас. Всегда на связи, отвечает на вопросы даже между визитами." },
-  { name: "Павел Д.", stars: 4, date: "2 месяца назад", source: "Google", text: "Сломал зуб в пятницу вечером. Записали на следующее утро, приняли без ожидания. Восстановили за один визит. Спасибо за оперативность." },
+  { name: "Павел Д.", stars: 4, date: "2 месяца назад", source: "Google Maps", text: "Сломал зуб в пятницу вечером. Записали на следующее утро, приняли без ожидания. Восстановили за один визит. Спасибо за оперативность." },
 ];
 
 function StarRating({ count, className = "" }) {
@@ -806,7 +805,7 @@ function Contacts() {
   const reduced = useReducedMotion();
   return (
     <section id="contacts" className="section-cta px-4 sm:px-6 lg:px-8 bg-surface-alt" aria-labelledby="contacts-title">
-      <SectionTitle id="contacts-title" className="text-balance">Записаться на приём</SectionTitle>
+      <SectionTitle id="contacts-title" className="text-balance">Контактная информация</SectionTitle>
       <motion.div
         className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-start"
         {...(reduced ? {} : {
@@ -935,8 +934,8 @@ function AppointmentForm() {
           />
         </div>
         <div className="grid sm:grid-cols-2 gap-4">
-          <LabeledInput id="form-service" label="Услуга" value={form.service} onChange={(v) => update("service", v)} placeholder="Например: консультация" />
-          <LabeledInput id="form-time" label="Удобное время" value={form.time} onChange={(v) => update("time", v)} placeholder="Например: утро" />
+          <LabeledInput id="form-service" label="Услуга" value={form.service} onChange={(v) => update("service", v)} placeholder="Консультация" />
+          <LabeledInput id="form-time" label="Удобное время" value={form.time} onChange={(v) => update("time", v)} placeholder="16:00" />
         </div>
       </div>
 
