@@ -87,7 +87,7 @@ function Header() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#contacts"
+            href="#data"
             className="hidden md:inline-flex bg-primary text-white px-6 h-12 min-h-[44px] items-center justify-center rounded-button font-body font-semibold text-caption hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-all duration-200 hover:shadow-card active:scale-[0.98]"
           >
             Записаться
@@ -124,7 +124,7 @@ function Header() {
           <a href="#before-after" className="min-h-[44px] py-3 flex items-center text-text font-body text-body cursor-pointer" onClick={() => setMobileMenuOpen(false)}>До и после</a>
           <a href="#reviews" className="min-h-[44px] py-3 flex items-center text-text font-body text-body cursor-pointer" onClick={() => setMobileMenuOpen(false)}>Отзывы</a>
           <a href="#contacts" className="min-h-[44px] py-3 flex items-center text-text font-body text-body cursor-pointer" onClick={() => setMobileMenuOpen(false)}>Контакты</a>
-          <a href="#contacts" className="mt-2 min-h-[44px] flex items-center justify-center bg-primary text-white py-3 rounded-button font-semibold text-body hover:bg-primary-hover transition-colors duration-200 active:scale-[0.98] cursor-pointer" onClick={() => setMobileMenuOpen(false)}>Записаться</a>
+          <a href="#privacy" className="mt-2 min-h-[44px] flex items-center justify-center bg-primary text-white py-3 rounded-button font-semibold text-body hover:bg-primary-hover transition-colors duration-200 active:scale-[0.98] cursor-pointer" onClick={() => setMobileMenuOpen(false)}>Записаться</a>
           <a href={`tel:${CLINIC.phoneRaw}`} className="min-h-[44px] py-3 flex items-center justify-center border border-border rounded-button text-text font-medium text-body hover:bg-surface-alt transition-colors duration-200 active:scale-[0.98] cursor-pointer" onClick={() => setMobileMenuOpen(false)}>Позвонить</a>
         </nav>
       </div>
@@ -174,7 +174,7 @@ function Hero() {
             {...(reduced ? {} : { initial: { opacity: 0, y: 12 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.35, delay: 0.32 } })}
           >
             <a
-              href="#contacts"
+              href="#privacy"
               className="w-full sm:w-auto min-w-[220px] h-12 md:h-14 min-h-[44px] px-6 md:px-8 bg-primary text-white font-body font-semibold text-body rounded-button flex items-center justify-center hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-all duration-200 hover:shadow-card-hover active:scale-[0.98] cursor-pointer"
             >
               Записаться на консультацию
@@ -326,7 +326,7 @@ function Services() {
                 {item.price}
               </span>
               <a
-                href="#contacts"
+                href="#privacy"
                 className="text-caption font-medium text-primary hover:underline transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded shrink-0 cursor-pointer"
               >
                 Записаться →
@@ -806,38 +806,41 @@ function Contacts() {
   return (
     <section id="contacts" className="section-cta px-4 sm:px-6 lg:px-8 bg-surface-alt" aria-labelledby="contacts-title">
       <SectionTitle id="contacts-title" className="text-balance">Контактная информация</SectionTitle>
-      <motion.div
-        className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-start"
-        {...(reduced ? {} : {
-          initial: { opacity: 0, y: 12 },
-          whileInView: { opacity: 1, y: 0 },
-          viewport: { once: true, margin: "-24px" },
-          transition: { duration: 0.35 },
-        })}
-      >
-        <div className="space-y-4 text-text font-body text-body leading-[1.65]">
-          <p><strong>Адрес:</strong> {CLINIC.address}</p>
-          <p><strong>Метро:</strong> {CLINIC.metro}</p>
-          <p><strong>Часы работы:</strong> {CLINIC.hours}</p>
-          <a href={`tel:${CLINIC.phoneRaw}`} className="text-primary font-medium hover:underline block transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded">
-            {CLINIC.phone}
-          </a>
-          <div className="rounded-2xl overflow-hidden shadow-card border border-border" style={{ borderRadius: "16px" }}>
-            <iframe
-              src="https://yandex.ru/map-widget/v1/?ll=37.6780%2C55.7722&z=16&pt=37.6780%2C55.7722,pm2rdl"
-              width="100%"
-              height="288"
-              frameBorder="0"
-              style={{ borderRadius: "16px", display: "block" }}
-              title="Адрес клиники на карте"
-              loading="lazy"
-            />
+      <div id="data" className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-start">
+        <motion.div
+          className="contents"
+          {...(reduced ? {} : {
+            initial: { opacity: 0, y: 12 },
+            whileInView: { opacity: 1, y: 0 },
+            viewport: { once: true, margin: "-24px" },
+            transition: { duration: 0.35 },
+          })}
+        >
+          <div className="space-y-4 text-text font-body text-body leading-[1.65]">
+            <p><strong>Адрес:</strong> {CLINIC.address}</p>
+            <p><strong>Метро:</strong> {CLINIC.metro}</p>
+            <p><strong>Часы работы:</strong> {CLINIC.hours}</p>
+            <a href={`tel:${CLINIC.phoneRaw}`} className="text-primary font-medium hover:underline block transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded">
+              {CLINIC.phone}
+            </a>
+            <div className="rounded-2xl overflow-hidden shadow-card border border-border" style={{ borderRadius: "16px" }}>
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?ll=37.6780%2C55.7722&z=16&pt=37.6780%2C55.7722,pm2rdl"
+                width="100%"
+                height="288"
+                frameBorder="0"
+                style={{ borderRadius: "16px", display: "block" }}
+                title="Адрес клиники на карте"
+                loading="lazy"
+              />
+            </div>
           </div>
-        </div>
-        <div className="bg-surface rounded-2xl border border-border shadow-card-hover overflow-hidden">
-          <AppointmentForm />
-        </div>
-      </motion.div>
+          
+          <div className="bg-surface rounded-2xl border border-border shadow-card-hover overflow-hidden">
+            <AppointmentForm />
+          </div>
+        </motion.div>
+      </div> 
     </section>
   );
 }
@@ -1022,7 +1025,28 @@ function SectionTitle({ id, children, className = "" }) {
 /* ================= STICKY CTA ================= */
 function StickyCTA() {
   const [contactsInView, setContactsInView] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false); 
   const observerRef = useRef(null);
+  useEffect(() => {
+    const checkMobileMenu = () => {
+      const mobileNav = document.getElementById('mobile-nav');
+      if (mobileNav) {
+        const isOpen = mobileNav.className.includes('max-h-[400px]');
+        setMobileMenuOpen(isOpen);
+      }
+    };
+    checkMobileMenu();
+    const observer = new MutationObserver(checkMobileMenu);
+    const mobileNav = document.getElementById('mobile-nav');
+    
+    if (mobileNav) {
+      observer.observe(mobileNav, { 
+        attributes: true, 
+        attributeFilter: ['class'] 
+      });
+    }
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const el = document.getElementById("contacts");
@@ -1037,13 +1061,12 @@ function StickyCTA() {
     observerRef.current.observe(el);
     return () => observerRef.current?.disconnect();
   }, []);
-
-  if (contactsInView) return null;
+  if (contactsInView || mobileMenuOpen) return null;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-30 md:hidden bg-surface border-t border-border shadow-sticky p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] flex items-center justify-center gap-3 min-h-[72px]">
       <a
-        href="#contacts"
+        href="#data"
         className="flex-1 max-w-xs bg-primary text-white min-h-[44px] h-12 px-6 rounded-button flex items-center justify-center font-body font-semibold text-body focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 hover:bg-primary-hover transition-all duration-200 hover:shadow-card active:scale-[0.98] cursor-pointer"
       >
         Записаться
