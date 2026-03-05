@@ -18,7 +18,7 @@ import { Contacts } from "./components/sections/Contacts.jsx";
 export default function DentalLanding() {
   return (
     <MobileMenuProvider>
-    <div className="bg-bg text-text scroll-smooth min-h-screen pb-20 md:pb-0">
+    <div className="bg-bg text-text scroll-smooth min-h-screen pb-20 sm:pb-0">
       <a
         href="#main"
         className="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-xl focus:w-auto focus:h-auto focus:overflow-visible focus:m-0 focus:[clip:auto] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
