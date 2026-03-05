@@ -44,7 +44,7 @@ export function Hero() {
             {...(reduced ? {} : { initial: { opacity: 0, y: 12 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.35, delay: 0.32 } })}
           >
             <a
-              href="#privacy"
+              href="#data"
               className="w-full sm:w-auto min-w-[220px] h-12 md:h-14 min-h-[44px] px-6 md:px-8 bg-primary text-white font-body font-semibold text-body rounded-button flex items-center justify-center hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-all duration-200 hover:shadow-card-hover active:scale-[0.98] cursor-pointer"
             >
               Записаться на консультацию

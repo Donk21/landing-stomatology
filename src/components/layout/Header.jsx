@@ -58,7 +58,19 @@ export function Header() {
           <a href="#before-after" className="min-h-[44px] py-3 flex items-center text-text font-body text-body cursor-pointer" onClick={() => setMobileMenuOpen(false)}>До и после</a>
           <a href="#reviews" className="min-h-[44px] py-3 flex items-center text-text font-body text-body cursor-pointer" onClick={() => setMobileMenuOpen(false)}>Отзывы</a>
           <a href="#contacts" className="min-h-[44px] py-3 flex items-center text-text font-body text-body cursor-pointer" onClick={() => setMobileMenuOpen(false)}>Контакты</a>
-          <a href="#privacy" className="mt-2 min-h-[44px] flex items-center justify-center bg-primary text-white py-3 rounded-button font-semibold text-body hover:bg-primary-hover transition-colors duration-200 active:scale-[0.98] cursor-pointer" onClick={() => setMobileMenuOpen(false)}>Записаться</a>
+          <a
+            href="#data"
+            className="mt-2 min-h-[44px] flex items-center justify-center bg-primary text-white py-3 rounded-button font-semibold text-body hover:bg-primary-hover transition-colors duration-200 active:scale-[0.98] cursor-pointer"
+            onClick={(e) => {
+              e.preventDefault();
+              setMobileMenuOpen(false);
+              setTimeout(() => {
+                document.getElementById("data")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }, 320);
+            }}
+          >
+            Записаться
+          </a>
           <a href={`tel:${CLINIC.phoneRaw}`} className="min-h-[44px] py-3 flex items-center justify-center border border-border rounded-button text-text font-medium text-body hover:bg-surface-alt transition-colors duration-200 active:scale-[0.98] cursor-pointer" onClick={() => setMobileMenuOpen(false)}>Позвонить</a>
         </nav>
       </div>

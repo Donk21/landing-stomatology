@@ -77,6 +77,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Scroll target for "Записаться" — form lands with header visible, not under sticky nav */
+#data {
+  scroll-margin-top: 5.5rem;
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-text);

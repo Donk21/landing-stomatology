@@ -42,7 +42,7 @@ export function Services() {
                 {item.price}
               </span>
               <a
-                href="#privacy"
+                href="#data"
                 className="text-caption font-medium text-primary hover:underline transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded shrink-0 cursor-pointer"
               >
                 Записаться →

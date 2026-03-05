@@ -9,7 +9,7 @@ export function Contacts() {
   return (
     <section id="contacts" className="section-cta px-4 sm:px-6 lg:px-8 bg-surface-alt" aria-labelledby="contacts-title">
       <SectionTitle id="contacts-title" className="text-balance">Контактная информация</SectionTitle>
-      <div id="data" className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-start">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-start">
         <Motion.div
           className="contents"
           {...(reduced ? {} : {
@@ -39,8 +39,11 @@ export function Contacts() {
             </div>
           </div>
 
-          <div className="bg-surface rounded-2xl border border-border shadow-card-hover overflow-hidden">
-            <AppointmentForm />
+          <div className="flex flex-col">
+            <span id="data" className="block h-0 w-full" aria-hidden tabIndex={-1} />
+            <div className="bg-surface rounded-2xl border border-border shadow-card-hover overflow-hidden">
+              <AppointmentForm />
+            </div>
           </div>
         </Motion.div>
       </div>
