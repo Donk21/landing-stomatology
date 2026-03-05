@@ -62,10 +62,11 @@ export function Header() {
       <div
         ref={mobileNavRef}
         id="mobile-nav"
-        className={`rounded-b-2xl shadow-lg lg:hidden border-t border-border bg-surface overflow-hidden transition-[max-height] duration-300 ease-out ${mobileMenuOpen ? "max-h-[600px]" : "max-h-0"}`}
+        className={`lg:hidden border-t border-border bg-surface overflow-hidden transition-[max-height] duration-300 ease-out rounded-b-2xl shadow-lg ${mobileMenuOpen ? "max-h-[600px]" : "max-h-0"}`}
         aria-hidden={!mobileMenuOpen}
         inert={!mobileMenuOpen}
       >
+        
         <nav className="px-4 py-6 flex flex-col gap-2">
           <a href="#doctors" className="min-h-[44px] py-3 flex items-center text-text font-body text-body cursor-pointer" onClick={() => setMobileMenuOpen(false)}>Врачи</a>
           <a href="#services" className="min-h-[44px] py-3 flex items-center text-text font-body text-body cursor-pointer" onClick={() => setMobileMenuOpen(false)}>Услуги и цены</a>
