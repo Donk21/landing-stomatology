@@ -40,7 +40,7 @@ export function Contacts() {
           </div>
 
           <div className="flex flex-col">
-            <span id="data" className="block h-0 w-full" aria-hidden tabIndex={-1} />
+            <span id="data" className="block h-0 w-full" tabIndex={-1} />
             <div className="bg-surface rounded-2xl border border-border shadow-card-hover overflow-hidden">
               <AppointmentForm />
             </div>
