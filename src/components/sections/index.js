@@ -1,0 +1,9 @@
+export { Hero } from "./Hero.jsx";
+export { StatsBar } from "./StatsBar.jsx";
+export { Services } from "./Services.jsx";
+export { Doctors } from "./Doctors.jsx";
+export { BeforeAfter } from "./BeforeAfter.jsx";
+export { Reviews } from "./Reviews.jsx";
+export { Guarantees } from "./Guarantees.jsx";
+export { FAQ } from "./FAQ.jsx";
+export { Contacts } from "./Contacts.jsx";
