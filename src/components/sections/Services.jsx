@@ -10,7 +10,7 @@ export function Services() {
     <section id="services" className="section px-4 sm:px-6 lg:px-8 bg-bg" aria-labelledby="services-title">
       <SectionTitle id="services-title" className="text-balance">Услуги и цены</SectionTitle>
       <p className="text-body text-text-muted text-center max-w-2xl mx-auto mb-10 md:mb-12 leading-[1.65]">
-        Точная стоимость — после осмотра и плана лечения. Консультация всегда бесплатно.
+        Точная стоимость — после осмотра и плана лечения. Консультация всегда бесплатная.
       </p>
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {SERVICES_LIST.map((item, i) => (

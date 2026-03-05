@@ -10,7 +10,10 @@ export function useSectionInView(id) {
 
   useEffect(() => {
     const el = document.getElementById(id);
-    if (!el) return;
+    if (!el) {
+      queueMicrotask(() => setInView(false));
+      return;
+    }
     const observer = new IntersectionObserver(
       ([entry]) => setInView(entry.isIntersecting),
       { rootMargin: "0px", threshold: 0.1 }

@@ -1,8 +1,20 @@
+import { useEffect, useRef } from "react";
 import { CLINIC } from "../../config/clinic.js";
 import { useMobileMenuOpen } from "../../hooks/useMobileMenuOpen.jsx";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useMobileMenuOpen();
+  const mobileNavRef = useRef(null);
+
+  useEffect(() => {
+    const el = mobileNavRef.current;
+    if (!el) return;
+    if (mobileMenuOpen) {
+      el.removeAttribute("inert");
+    } else {
+      el.setAttribute("inert", "");
+    }
+  }, [mobileMenuOpen]);
 
   return (
     <header className="sticky top-0 z-40 bg-surface backdrop-blur-sm border-b border-border transition-shadow duration-200">
@@ -48,6 +60,7 @@ export function Header() {
         </div>
       </div>
       <div
+        ref={mobileNavRef}
         id="mobile-nav"
         className={`md:hidden border-t border-border bg-surface overflow-hidden transition-[max-height] duration-300 ease-out ${mobileMenuOpen ? "max-h-[400px]" : "max-h-0"}`}
         aria-hidden={!mobileMenuOpen}
