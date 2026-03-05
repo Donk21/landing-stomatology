@@ -34,7 +34,7 @@ export function AppointmentForm() {
 
   const phoneDigits = form.phone.replace(/\D/g, "");
   const nameValid = form.name.trim().length >= 2;
-  const phoneValid = phoneDigits.length >= 10;
+  const phoneValid = phoneDigits.length === 11;
   const showNameError = touched.name && !nameValid;
   const showPhoneError = touched.phone && !phoneValid;
 
@@ -84,7 +84,7 @@ export function AppointmentForm() {
             onChange={(v) => update("phone", v)}
             onBlur={() => setTouched((t) => ({ ...t, phone: true }))}
             invalid={showPhoneError}
-            errorMessage={showPhoneError ? "Введите номер из 10 цифр" : null}
+            errorMessage={showPhoneError ? "Введите номер из 11 цифр" : null}
             placeholder="+7 (999) 123-45-67"
           />
         </div>
