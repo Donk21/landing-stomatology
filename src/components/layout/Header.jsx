@@ -23,7 +23,7 @@ export function Header() {
           {CLINIC.name}
         </a>
 
-        <nav className="hidden lg:flex gap-8 text-caption text-text-muted">
+        <nav className="hidden md:flex gap-8 text-caption text-text-muted">
           <a href="#doctors" className="hover:text-text transition-colors duration-200">Врачи</a>
           <a href="#services" className="hover:text-text transition-colors duration-200">Услуги и цены</a>
           <a href="#before-after" className="hover:text-text transition-colors duration-200">До и после</a>
@@ -34,19 +34,19 @@ export function Header() {
         <div className="flex items-center gap-3">
           <a
             href="#data"
-            className="hidden lg:inline-flex bg-primary text-white px-6 h-12 min-h-[44px] items-center justify-center rounded-button font-body font-semibold text-caption hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-all duration-200 hover:shadow-card active:scale-[0.98]"
+            className="hidden md:inline-flex bg-primary text-white px-6 h-12 min-h-[44px] items-center justify-center rounded-button font-body font-semibold text-caption hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-all duration-200 hover:shadow-card active:scale-[0.98]"
           >
             Записаться
           </a>
           <a
             href={`tel:${CLINIC.phoneRaw}`}
-            className="hidden lg:inline-flex border border-border text-text px-5 h-12 min-h-[44px] items-center justify-center rounded-button text-caption font-medium hover:bg-surface-alt focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-all duration-200 active:scale-[0.98]"
+            className="hidden md:inline-flex border border-border text-text px-5 h-12 min-h-[44px] items-center justify-center rounded-button text-caption font-medium hover:bg-surface-alt focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-all duration-200 active:scale-[0.98]"
           >
             Позвонить
           </a>
           <button
             type="button"
-            className="lg:hidden min-w-[44px] min-h-[44px] p-3 rounded-lg hover:bg-surface-alt focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-colors duration-200 flex items-center justify-center"
+            className="md:hidden min-w-[44px] min-h-[44px] p-3 rounded-lg hover:bg-surface-alt focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-colors duration-200 flex items-center justify-center"
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-nav"
             aria-label={mobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
@@ -62,12 +62,11 @@ export function Header() {
       <div
         ref={mobileNavRef}
         id="mobile-nav"
-        className={`lg:hidden border-t border-border bg-surface overflow-hidden transition-[max-height] duration-300 ease-out rounded-b-2xl shadow-lg ${mobileMenuOpen ? "max-h-[600px]" : "max-h-0"}`}
+        className={`md:hidden border-t border-border bg-surface overflow-hidden transition-[max-height] duration-300 ease-out ${mobileMenuOpen ? "max-h-[400px]" : "max-h-0"}`}
         aria-hidden={!mobileMenuOpen}
         inert={!mobileMenuOpen}
       >
-        
-        <nav className="px-4 py-6 flex flex-col gap-2">
+        <nav className="px-4 py-4 flex flex-col gap-1">
           <a href="#doctors" className="min-h-[44px] py-3 flex items-center text-text font-body text-body cursor-pointer" onClick={() => setMobileMenuOpen(false)}>Врачи</a>
           <a href="#services" className="min-h-[44px] py-3 flex items-center text-text font-body text-body cursor-pointer" onClick={() => setMobileMenuOpen(false)}>Услуги и цены</a>
           <a href="#before-after" className="min-h-[44px] py-3 flex items-center text-text font-body text-body cursor-pointer" onClick={() => setMobileMenuOpen(false)}>До и после</a>
