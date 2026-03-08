@@ -16,7 +16,7 @@ export function StatsBar() {
         </div>
         <div>
           <p className="text-3xl font-bold text-primary">2 года</p>
-          <p className="text-caption text-text-muted mt-1">гарантия на работы</p>
+          <p className="text-caption text-text-muted mt-1">гарантия на услуги</p>
         </div>
       </div>
     </section>
