@@ -24,6 +24,6 @@ export const BEFORE_AFTER_SLIDES = [
     title: "Имплантация",
     before: <BeforeAfter3Before />,
     after: <BeforeAfter3After />,
-    desc: "Отсутствие зуба 5 лет → Имплант + Коронка → 4 месяца → от 45 000 ₽",
+    desc: "Отсутствие зуба 5 лет → Имплант + коронка → 4 месяца → от 45 000 ₽",
   },
 ];

@@ -29,14 +29,14 @@ export function Hero() {
             className="text-body-lg text-text-muted mb-6 font-body max-w-xl leading-[1.65]"
             {...(reduced ? {} : { initial: { opacity: 0, y: 12 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.35, delay: 0.18 } })}
           >
-            Осмотр и план лечения — без давления и обязательств. Опытные врачи, современная анестезия.
+            Осмотр и план лечения — бесплатно. Опытные врачи, современная анестезия.
           </Motion.p>
 
           <Motion.p
             className="text-body text-text-muted mb-8 font-body leading-[1.65]"
             {...(reduced ? {} : { initial: { opacity: 0, y: 12 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.35, delay: 0.25 } })}
           >
-            Без обязательств. Перезвоним в течение 15 минут.
+            Перезвоним в течение 15 минут.
           </Motion.p>
 
           <Motion.div
@@ -51,7 +51,23 @@ export function Hero() {
             </a>
             <a
               href="#services"
-              className="text-primary font-medium text-body hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded font-body"
+              className="
+                w-full                
+                sm:w-auto             
+                text-primary 
+                font-medium 
+                text-body 
+                hover:underline 
+                focus:outline-none 
+                focus-visible:ring-2 
+                focus-visible:ring-primary 
+                focus-visible:ring-offset-2 
+                rounded 
+                font-body
+                text-center           
+                py-2                   
+                px-4                   
+              "
             >
               Узнать цены
             </a>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { sendAppointment } from "../../api/sendAppointment.js";
 import { LabeledInput } from "../../components/ui/LabeledInput.jsx";
+import { usePrivacyModal } from "../../hooks/usePrivacyModal.jsx";
 
 function maskPhone(value) {
   const digits = value.replace(/\D/g, "").slice(0, 11);
@@ -25,6 +26,7 @@ export function AppointmentForm() {
   });
   const [status, setStatus] = useState("idle");
   const [touched, setTouched] = useState({ name: false, phone: false });
+  const { openModal } = usePrivacyModal();
 
   function update(key, value) {
     if (key === "phone") value = maskPhone(value);
@@ -105,7 +107,13 @@ export function AppointmentForm() {
           />
           <span id="consent-desc" className="text-caption text-text-muted leading-[1.65]">
             Я соглашаюсь с{" "}
-            <a href="#privacy" className="text-primary underline hover:no-underline">политикой конфиденциальности</a>
+            <button
+              type="button"
+              onClick={openModal}
+              className="text-primary underline hover:no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded bg-transparent border-0 p-0 inline cursor-pointer"
+            >
+              политикой конфиденциальности
+            </button>
             {" "}и даю согласие на обработку данных для связи со мной.
           </span>
         </label>
@@ -136,7 +144,7 @@ export function AppointmentForm() {
         <p className="text-success mt-4 font-medium text-body leading-[1.65]" role="status">Спасибо! Мы перезвоним в течение 15 минут.</p>
       )}
       {status === "error" && (
-        <p className="text-error mt-4 text-caption leading-[1.65]" role="alert">Проверьте имя, телефон и согласие на обработку данных.</p>
+        <p className="text-error mt-4 text-caption leading-[1.65]" role="alert">Проверьте имя, телефон и согласие на обработку персональных данных.</p>
       )}
     </form>
   );
