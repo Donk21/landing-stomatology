@@ -29,7 +29,7 @@ export function Hero() {
             className="text-body-lg text-text-muted mb-6 font-body max-w-xl leading-[1.65]"
             {...(reduced ? {} : { initial: { opacity: 0, y: 12 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.35, delay: 0.18 } })}
           >
-            Осмотр и план лечения — бесплатно. Опытные врачи, современная анестезия.
+            Первичный осмотр — бесплатно. У нас только опытные врачи и современные методы.
           </Motion.p>
 
           <Motion.p
