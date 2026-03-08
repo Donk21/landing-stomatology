@@ -5,28 +5,31 @@ import { useMobileMenuOpen } from "../../hooks/useMobileMenuOpen.jsx";
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useMobileMenuOpen();
   const mobileNavRef = useRef(null);
+  const scrollPositionRef = useRef(0);
 
-    useEffect(() => {
+  useEffect(() => {
     if (mobileMenuOpen) {
-      const scrollY = window.scrollY;
+      scrollPositionRef.current = window.scrollY;
       document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = "100%";
-      document.body.style.overflowY = "scroll"; 
+      document.body.style.top = `-${scrollPositionRef.current}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.overflowY = "scroll";
     } else {
-      const scrollY = document.body.style.top;
+      const scrollY = scrollPositionRef.current;
       document.body.style.position = "";
       document.body.style.top = "";
-      document.body.style.width = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
       document.body.style.overflowY = "";
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || "0") * -1);
-      }
+      window.scrollTo(0, scrollY);
     }
+
     return () => {
       document.body.style.position = "";
       document.body.style.top = "";
-      document.body.style.width = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
       document.body.style.overflowY = "";
     };
   }, [mobileMenuOpen]);
@@ -50,23 +53,14 @@ export function Header() {
     <header className="sticky top-0 z-40 bg-surface backdrop-blur-sm border-b border-border transition-shadow duration-200">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
         <a 
-          className="
-            font-display 
-            font-semibold 
-            text-text
-            flex
-            flex-col
-            leading-tight
-            lg:block
-            lg:leading-normal
-          " 
+          className="font-display font-semibold text-text flex flex-col leading-tight lg:block lg:leading-normal" 
           href="#main" 
           aria-label="На главную"
         >
-          <span className="block lg:hidden text-xs xs:text-sm sm:text-base">
+          <span className="block lg:hidden text-[10px] xs:text-xs sm:text-sm">
             {clinicNameParts.first}
           </span>
-          <span className="block lg:hidden text-xs xs:text-sm sm:text-base">
+          <span className="block lg:hidden text-[10px] xs:text-xs sm:text-sm font-medium text-primary">
             {clinicNameParts.second}
           </span>
           <span className="hidden lg:block text-h3">
@@ -95,7 +89,7 @@ export function Header() {
           >
             Позвонить
           </a>
-
+          
           <button
             type="button"
             className="lg:hidden min-w-[44px] min-h-[44px] p-2 sm:p-3 rounded-lg hover:bg-surface-alt focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-colors duration-200 flex items-center justify-center"
@@ -111,7 +105,7 @@ export function Header() {
           </button>
         </div>
       </div>
-
+      
       <div
         ref={mobileNavRef}
         id="mobile-nav"
@@ -172,7 +166,7 @@ export function Header() {
           >
             Контакты
           </a>
-
+          
           <div className="h-px bg-border my-1" aria-hidden="true"></div>
           
           <a
@@ -182,7 +176,7 @@ export function Header() {
               e.preventDefault();
               setMobileMenuOpen(false);
               setTimeout(() => {
-                document.getElementById("data")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                document.getElementById("data")?.scrollIntoView({ behavior: "auto", block: "start" });
               }, 300);
             }}
           >

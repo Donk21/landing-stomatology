@@ -74,7 +74,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 /* Scroll target for "Записаться" — form lands with header visible, not under sticky nav */
