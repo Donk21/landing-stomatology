@@ -18,12 +18,6 @@ export function Hero() {
             Здоровая улыбка без боли и переплат
           </Motion.h1>
 
-          <Motion.span
-            className="inline-block text-body-lg font-body font-semibold text-primary mb-4 px-4 py-2 rounded-full bg-primary-muted"
-            {...(reduced ? {} : { initial: { opacity: 0, y: 12 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.35, delay: 0.1 } })}
-          >
-            Первичная консультация 0 ₽
-          </Motion.span>
 
           <Motion.p
             className="text-body-lg text-text-muted mb-6 font-body max-w-xl leading-[1.65]"
