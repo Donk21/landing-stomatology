@@ -46,9 +46,9 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 bg-surface backdrop-blur-sm border-b border-border transition-shadow duration-200">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-2 sm:px-4 lg:px-6 h-14"> {/* ← уменьшено с h-16 до h-14 */}
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-2 sm:px-4 lg:px-6 h-14"> 
         
-        {/* Логотип - чуть меньше */}
+
         <a 
           className="font-display font-semibold text-text text-sm sm:text-base md:text-lg lg:text-h3 truncate max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-none mr-1" 
           href="#main" 
@@ -57,7 +57,7 @@ export function Header() {
           Здоровая улыбка
         </a>
 
-        {/* Навигация - чуть меньше отступы */}
+
         <nav className="hidden lg:flex gap-4 xl:gap-6 text-caption text-text-muted">
           <a href="#doctors" className="hover:text-text transition-colors duration-200 whitespace-nowrap">Врачи</a>
           <a href="#services" className="hover:text-text transition-colors duration-200 whitespace-nowrap">Услуги</a>
@@ -66,7 +66,7 @@ export function Header() {
           <a href="#contacts" className="hover:text-text transition-colors duration-200 whitespace-nowrap">Контакты</a>
         </nav>
 
-        {/* Кнопки - чуть меньше */}
+
         <div className="flex items-center gap-1 sm:gap-2 lg:gap-2">
           <a
             href="#data"
@@ -81,7 +81,6 @@ export function Header() {
             Позвонить
           </a>
           
-          {/* Бургер - чуть меньше */}
           <button
             type="button"
             className="lg:hidden min-w-[36px] min-h-[36px] p-1.5 rounded-lg hover:bg-surface-alt focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-colors duration-200 flex items-center justify-center"
@@ -98,7 +97,7 @@ export function Header() {
         </div>
       </div>
       
-      {/* Мобильное меню - тоже чуть меньше */}
+      
       <div
         ref={mobileNavRef}
         id="mobile-nav"
@@ -123,7 +122,7 @@ export function Header() {
         aria-hidden={!mobileMenuOpen}
         inert={!mobileMenuOpen}
       >
-        <nav className="px-2 py-2 flex flex-col gap-0.5"> {/* ← уменьшены отступы */}
+        <nav className="px-2 py-2 flex flex-col gap-0.5"> 
           <a 
             href="#doctors" 
             className="min-h-[36px] py-1.5 px-2 flex items-center text-text font-body text-sm rounded-lg hover:bg-surface-alt transition-colors duration-200" 
